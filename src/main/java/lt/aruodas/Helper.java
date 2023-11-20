@@ -17,7 +17,8 @@ public class Helper {
         wait = new WebDriverWait(driver, Duration.ofSeconds(3));
         driver.manage().window().maximize();
         driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(3));
-
+        BuyRE.driver = driver;
+        BuyRE.wait = wait;
     }
 
 
