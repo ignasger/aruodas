@@ -30,8 +30,8 @@ public class buyReTests {
 
     @Test
     public void aruodasLtPositiveTest() {
-        BuyRE re = new BuyRE("Kaunas", "", "Šilainiai", "9-ojo", "", "Pigiai nebrangiai nupirksiu jūsų namą", "nameliumbas.jpg", "https://www.youtube.com/watch?v=9xkxT2hY634&pp=ygUTbHV4dXJ5IGhvdXNlIHJldmlldw%3D%3D", "", "220000", "65214726", "sacebi1448@marksia.com");
-        re.fillAd();
+        BuyRE re = new BuyRE("Kaunas", "", "Šilainiai", "9-ojo", "Namai pirkti", "Pigiai nebrangiai nupirksiu jūsų namą", "nameliumbas.jpg", "https://www.youtube.com/watch?v=9xkxT2hY634&pp=ygUTbHV4dXJ5IGhvdXNlIHJldmlldw%3D%3D", "", "220000", "65214726", "sacebi1448@marksia.com");
+        re.fillre();
         Assert.assertEquals("", "");
     }
 
