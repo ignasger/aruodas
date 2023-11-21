@@ -1,5 +1,6 @@
-import lt.aruodas.BuyRE;
+import lt.aruodas.Models.BuyRE;
 import lt.aruodas.Helper;
+import lt.aruodas.Models.RealEstate;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.testng.Assert;
@@ -14,18 +15,12 @@ public class buyReTests {
     @BeforeClass
     public void beforeClass() {
         Helper.driverInit();
-        driver = Helper.driver;
-        acceptCookies();
+        driver = RealEstate.driver;
     }
 
     @AfterClass
     public void afterClass() {
         //driver.quit();
-    }
-
-    public void acceptCookies() {
-        driver.get("https://www.aruodas.lt/ideti-skelbima/?obj=10");
-        driver.findElement(By.id("onetrust-accept-btn-handler")).click();
     }
 
     @Test
