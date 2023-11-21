@@ -102,7 +102,7 @@ public class BuyRE {
     }
 
     public void setInformation() {
-        driver.findElement(By.xpath("//*[@id=\"priceField\"]")).sendKeys(this.price);
+        driver.findElement(By.id("priceField")).sendKeys(this.price);
 
         driver.findElement(By.xpath("//*[@id=\"newObjectForm\"]/ul/li[21]/span[1]/input")).sendKeys(this.phone);
 
