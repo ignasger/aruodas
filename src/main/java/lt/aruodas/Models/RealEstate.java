@@ -18,7 +18,6 @@ public class RealEstate {
     public String settlement;
     public String microdistrict;
     public String street;
-    public String space;
     public String description;
     public String imageUrl;
     public String youtubeUrl;
@@ -27,12 +26,11 @@ public class RealEstate {
     public String phone;
     public String email;
 
-    public RealEstate(String municipality, String settlement, String microdistrict, String street, String space, String description, String imageUrl, String youtubeUrl, String virtualTour, String price, String phone, String email) {
+    public RealEstate(String municipality, String settlement, String microdistrict, String street, String description, String imageUrl, String youtubeUrl, String virtualTour, String price, String phone, String email) {
         this.municipality = municipality;
         this.settlement = settlement;
         this.microdistrict = microdistrict;
         this.street = street;
-        this.space = space;
         this.description = description;
         this.imageUrl = imageUrl;
         this.youtubeUrl = youtubeUrl;
@@ -51,7 +49,6 @@ public class RealEstate {
         setPrice();
         setPhone();
         setEmail();
-        setSpace();
         clickCheckBoxes();
 
     }
@@ -61,10 +58,6 @@ public class RealEstate {
         rows.get(rows.size() - 3).findElements(By.tagName("span")).get(1).click();
         rows.get(rows.size() - 4).findElement(By.tagName("span")).click();
         rows.get(rows.size() - 5).findElement(By.tagName("span")).click();
-    }
-
-    public void setSpace() {
-        driver.findElement(By.name("FAreaOverAll")).sendKeys(this.space);
     }
 
     public void setVirtualTour() {

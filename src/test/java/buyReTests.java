@@ -11,6 +11,13 @@ public class buyReTests {
 
     public static WebDriver driver;
 
+    @Test
+    public void aruodasLtPositiveTest() {                //"Kaunas", "", "Šilainiai", "9-ojo", "Pigiai nebrangiai nupirksiu jūsų namą", "nameliumbas.jpg", "https://www.youtube.com/watch?v=9xkxT2hY634&pp=ygUTbHV4dXJ5IGhvdXNlIHJldmlldw%3D%3D", "", "220000", "65214726", "sacebi1448@marksia.com", "Namai pirkti", ""
+        BuyRE re = new BuyRE("Kaunas", "", "Šilainiai", "9-ojo Forto", "Pigiai nebrangiai nupirksiu jūsų namą", "nameliumbas.jpg", "https://www.youtube.com/watch?v=9xkxT2hY634&pp=ygUTbHV4dXJ5IGhvdXNlIHJldmlldw%3D%3D", "https://howner.lt/", "220000", "65214726", "sacebi1448@marksia.com", "Namai pirkti");
+        re.fillAd();
+        Assert.assertEquals("", "");
+    }
+
     @BeforeClass
     public void beforeClass() {
         Helper.driverInit();
@@ -22,12 +29,7 @@ public class buyReTests {
         //driver.quit();
     }
 
-    @Test
-    public void aruodasLtPositiveTest() {                //"Kaunas", "", "Šilainiai", "9-ojo", "Pigiai nebrangiai nupirksiu jūsų namą", "nameliumbas.jpg", "https://www.youtube.com/watch?v=9xkxT2hY634&pp=ygUTbHV4dXJ5IGhvdXNlIHJldmlldw%3D%3D", "", "220000", "65214726", "sacebi1448@marksia.com", "Namai pirkti", ""
-        BuyRE re = new BuyRE("Kaunas", "", "Šilainiai", "9-ojo Forto", "", "Pigiai nebrangiai nupirkčiau jūsų namą", "nameliumbas.jpg", "https://www.youtube.com/watch?v=9xkxT2hY634&pp=ygUTbHV4dXJ5IGhvdXNlIHJldmlldw%3D%3D", "https://howner.lt/", "220000", "65214726", "sacebi1448@marksia.com", "Namai pirkti");
-        re.fillAd();
-        Assert.assertEquals("", "");
-    }
+
 
 }
 

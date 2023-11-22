@@ -7,12 +7,14 @@ public class Plot extends RealEstate {
     public String addressNumber;
     public String rcNumber;
     public String purposes;
+    public String spaces;
 
-    public Plot(String municipality, String settlement, String microdistrict, String street, String space, String description, String imageUrl, String youtubeUrl, String virtualTour, String price, String phone, String email, String addressNo, String rcNo, String purposes) {
-        super(municipality, settlement, microdistrict, street, space, description, imageUrl, youtubeUrl, virtualTour, price, phone, email);
-        this.addressNumber = addressNo;
-        this.rcNumber = rcNo;
+    public Plot(String municipality, String settlement, String microdistrict, String street, String description, String imageUrl, String youtubeUrl, String virtualTour, String price, String phone, String email, String addressNumber, String rcNumber, String purposes, String spaces) {
+        super(municipality, settlement, microdistrict, street, description, imageUrl, youtubeUrl, virtualTour, price, phone, email);
+        this.addressNumber = addressNumber;
+        this.rcNumber = rcNumber;
         this.purposes = purposes;
+        this.spaces = spaces;
     }
 
     @Override
@@ -22,8 +24,12 @@ public class Plot extends RealEstate {
         setAddressNumber();
         setRcNumber();
         setPurposes();
+        setSpaces();
     }
 
+    public void setSpaces() {
+        driver.findElement(By.name("FAreaOverAll")).sendKeys(this.spaces);
+    }
     public void setAddressNumber() {
         driver.findElement(By.name("FHouseNum")).sendKeys(this.addressNumber);
     }
