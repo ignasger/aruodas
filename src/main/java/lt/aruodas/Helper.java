@@ -10,7 +10,7 @@ import java.time.Duration;
 public class Helper {
 
     public static void driverInit() {
-        if(RealEstate.driver != null){
+        if (RealEstate.driver != null) {
             return;
         }
         RealEstate.driver = new ChromeDriver();

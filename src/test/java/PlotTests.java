@@ -1,3 +1,4 @@
+import lt.aruodas.Helper;
 import lt.aruodas.Models.Plot;
 import lt.aruodas.Models.RealEstate;
 import org.openqa.selenium.WebDriver;
@@ -11,37 +12,22 @@ public class PlotTests {
     public static WebDriver driver;
 
     @Test
-    public void aruodasPlotPositiveTest(){
-        Plot plot = new Plot
-
-    plot.fillAd();
-    Assert.assertEquals("","");
+    public void aruodasPlotPositiveTest() {
+        Plot plot = new Plot("Kaunas", "", "Šilainiai", "9-ojo Forto", "1000", "Parduodu sklypą", "nameliumbas.jpg", "https://www.youtube.com/watch?v=9xkxT2hY634&pp=ygUTbHV4dXJ5IGhvdXNlIHJldmlldw%3D%3D", "https://howner.lt/", "124500", "65214726", "sacebi1448@marksia.com", "25", "7845-5236-7710", "Daugiabučių statyba, namų valda");
+        plot.fillAd();
+        Assert.assertEquals("", "");
     }
 
     @BeforeClass
-    public void beforeClass(){
-        helper.driverInit();
+    public void beforeClass() {
+        Helper.driverInit();
         driver = RealEstate.driver;
     }
 
     @AfterClass
-    public void afterClass(){
+    public void afterClass() {
         //driver.quit();
     }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 }

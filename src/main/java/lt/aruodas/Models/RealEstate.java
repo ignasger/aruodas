@@ -3,18 +3,22 @@ package lt.aruodas.Models;
 import org.openqa.selenium.By;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
+
+import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
 import java.io.File;
+import java.util.List;
+
 
 public class RealEstate {
     public static WebDriver driver;
     public static WebDriverWait wait;
-
     public String municipality;
-    public String village;
+    public String settlement;
     public String microdistrict;
     public String street;
+    public String space;
     public String description;
     public String imageUrl;
     public String youtubeUrl;
@@ -23,11 +27,12 @@ public class RealEstate {
     public String phone;
     public String email;
 
-    public RealEstate(String municipality, String village, String microdistrict, String street, String description, String imageUrl, String youtubeUrl, String virtualTour, String price, String phone, String email) {
+    public RealEstate(String municipality, String settlement, String microdistrict, String street, String space, String description, String imageUrl, String youtubeUrl, String virtualTour, String price, String phone, String email) {
         this.municipality = municipality;
-        this.village = village;
+        this.settlement = settlement;
         this.microdistrict = microdistrict;
         this.street = street;
+        this.space = space;
         this.description = description;
         this.imageUrl = imageUrl;
         this.youtubeUrl = youtubeUrl;
@@ -42,11 +47,28 @@ public class RealEstate {
         setDescription();
         uploadImage();
         setYoutubeUrl();
+        setVirtualTour();
         setPrice();
         setPhone();
         setEmail();
-        clickCheckboxes();
+        setSpace();
+        clickCheckBoxes();
 
+    }
+
+    public void clickCheckBoxes() {
+        List<WebElement> rows = driver.findElement(By.id("newObjectForm")).findElements(By.tagName("li"));
+        rows.get(rows.size() - 3).findElements(By.tagName("span")).get(1).click();
+        rows.get(rows.size() - 4).findElement(By.tagName("span")).click();
+        rows.get(rows.size() - 5).findElement(By.tagName("span")).click();
+    }
+
+    public void setSpace() {
+        driver.findElement(By.name("FAreaOverAll")).sendKeys(this.space);
+    }
+
+    public void setVirtualTour() {
+        driver.findElement(By.name("tour_3d")).sendKeys(this.virtualTour);
     }
 
     public void setLocation() {
@@ -70,16 +92,21 @@ public class RealEstate {
     }
 
     public void setDescription() {
-        driver.findElement(By.xpath("//*[@id=\"newObjectForm\"]/ul/li[13]/div/div[1]/textarea")).sendKeys(this.description);
+        driver.findElement(By.name("notes_lt")).sendKeys(this.description);
     }
 
     public void uploadImage() {
         File resourceFile = new File("images/" + this.imageUrl);
+        try {
+            Thread.sleep(900);
+        } catch (InterruptedException e) {
+        }
+        System.out.println(resourceFile.getAbsolutePath());
         driver.findElement(By.xpath("//*[@id=\"uploadPhotoBtn\"]/input")).sendKeys(resourceFile.getAbsolutePath());
     }
 
     public void setYoutubeUrl() {
-        driver.findElement(By.xpath("//*[@id=\"newObjectForm\"]/ul/li[17]/span[1]/input")).sendKeys(this.youtubeUrl);
+        driver.findElement(By.name("Video")).sendKeys(this.youtubeUrl);
     }
 
     public void setPrice() {
@@ -87,44 +114,41 @@ public class RealEstate {
     }
 
     public void setPhone() {
-        driver.findElement(By.xpath("//*[@id=\"newObjectForm\"]/ul/li[21]/span[1]/input")).sendKeys(this.phone);
+        driver.findElement(By.name("phone")).sendKeys(this.phone);
     }
 
     public void setEmail() {
-        driver.findElement(By.xpath("//*[@id=\"newObjectForm\"]/ul/li[22]/span[1]/input")).sendKeys(this.email);
+        driver.findElement(By.name("email")).sendKeys(this.email);
     }
-
-    public void clickCheckboxes() {
-    }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
