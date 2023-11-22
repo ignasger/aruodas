@@ -25,12 +25,12 @@ public class BuyRE extends RealEstate {
         driver.findElement(By.xpath("//*[@id=\"newObjectForm\"]/ul/li[7]/span[1]/span")).click();
         List<WebElement> objectTypes = driver.findElement(By.className("dropdown-input-values")).findElements(By.tagName("li"));
         for (WebElement objectType : objectTypes) {
-           if (objectType.getText().equalsIgnoreCase(this.objectType)) {
+            if (objectType.getText().equalsIgnoreCase(this.objectType)) {
                 objectType.click();
-               break;
+                break;
             }
         }
-   }
+    }
 
 
 }
