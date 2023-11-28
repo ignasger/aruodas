@@ -11,7 +11,7 @@ public class BuyRE extends RealEstate {
 
     public BuyRE(String municipality, String settlement, String microdistrict, String street, String description, String imageUrl, String youtubeUrl, String virtualTour, String price, String phone, String email, String objectType) {
         super(municipality, settlement, microdistrict, street, description, imageUrl, youtubeUrl, virtualTour, price, phone, email);
-        this.objectType = objectType;
+        this.objectType = objectType.toLowerCase();
     }
 
     @Override
@@ -21,7 +21,7 @@ public class BuyRE extends RealEstate {
         setObjectType();
     }
 
-    public void setObjectType() {                 //*[@id="newObjectForm"]/ul/li[7]/span[1]/span
+    public void setObjectType() {
         driver.findElement(By.xpath("//*[@id=\"newObjectForm\"]/ul/li[7]/span[1]/span")).click();
         List<WebElement> objectTypes = driver.findElement(By.className("dropdown-input-values")).findElements(By.tagName("li"));
         for (WebElement objectType : objectTypes) {
