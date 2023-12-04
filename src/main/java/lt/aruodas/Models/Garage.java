@@ -38,7 +38,6 @@ public class Garage extends RealEstate {
 
     public void setCarSpaces() {
         driver.findElement(By.xpath("//*[@id=\"newObjectForm\"]/ul/li[18]/div/div[2]/div[2]")).click();
-
     }
 
     public void setType() {
