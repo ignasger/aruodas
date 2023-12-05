@@ -68,6 +68,8 @@ public class House extends RealEstate {
         setBodyofWater();
         setToBodyOfWater();
         setWaterFeaturas();
+        setFeatures();
+        setAdditionalPremises();
     }
 
     public void setHouseNumber() {
@@ -289,7 +291,56 @@ public class House extends RealEstate {
             }
         }
     }
+
+    public void setFeatures() {
+
+        String[] features = this.features.replace(", ", ",").split(",");
+        for (int i = 0; i < features.length; i++) {
+
+            switch (features[i]) {
+
+                case "Kraštinis sklypas":
+                    driver.findElement(By.xpath("//*[@id=\"newObjectForm\"]/ul/li[31]/div/div[1]/label/span")).click();
+                    break;
+                case "Greta miško":
+                    driver.findElement(By.xpath("//*[@id=\"newObjectForm\"]/ul/li[31]/div/div[2]/label/span")).click();
+                    break;
+                case "Asfaltuotas privažiavimas":
+                    driver.findElement(By.xpath("//*[@id=\"newObjectForm\"]/ul/li[31]/div/div[3]/label/span")).click();
+                    break;
+                case "Elektra":
+                    driver.findElement(By.xpath("//*[@id=\"newObjectForm\"]/ul/li[31]/div/div[4]/label/span")).click();
+                    break;
+                case "Dujos":
+                    driver.findElement(By.xpath("//*[@id=\"newObjectForm\"]/ul/li[31]/div/div[5]/label/span")).click();
+                    break;
+                case "Internetas":
+                    driver.findElement(By.xpath("//*[@id=\"newObjectForm\"]/ul/li[31]/div/div[6]/label/span")).click();
+                    break;
+                case "Kabelinė televizija":
+                    driver.findElement(By.xpath("//*[@id=\"newObjectForm\"]/ul/li[31]/div/div[7]/label/span")).click();
+                    break;
+                case "Su pakrante":
+                    driver.findElement(By.xpath("//*[@id=\"newObjectForm\"]/ul/li[31]/div/div[8]/label/span")).click();
+                    break;
+
+            }
+        }
+    }
+
+    public void setAdditionalPremises() {
+
+        String[] additionalPremises = this.additionalPremises.replace(", ", ",").split(",");
+        for (int i = 0; i < additionalPremises.length; i++) {
+            switch (additionalPremises[i]) {
+            }
+        }
+    }
+
+
 }
+
+
 
 
 
