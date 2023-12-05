@@ -1,6 +1,7 @@
 package lt.aruodas.Models;
 
 import org.openqa.selenium.By;
+
 public class House extends RealEstate {
 
     public String houseNumber;
