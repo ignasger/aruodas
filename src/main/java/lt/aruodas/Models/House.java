@@ -70,6 +70,9 @@ public class House extends RealEstate {
         setWaterFeaturas();
         setFeatures();
         setAdditionalPremises();
+        setAdditionalInstallation();
+        setSecurity();
+        setEnergyClass();
     }
 
     public void setHouseNumber() {
@@ -233,6 +236,7 @@ public class House extends RealEstate {
 
     public void setClickFeatures() {
         driver.findElement(By.className("bigObjBtn")).click();
+        driver.findElement(By.xpath("//*[@id=\"newObjectForm\"]/ul/li[40]/div/div/div/label/span")).click();
     }
 
     public void setNumberOfRooms() {
@@ -332,11 +336,106 @@ public class House extends RealEstate {
 
         String[] additionalPremises = this.additionalPremises.replace(", ", ",").split(",");
         for (int i = 0; i < additionalPremises.length; i++) {
+
             switch (additionalPremises[i]) {
+
+                case "Baseinas":
+                    driver.findElement(By.xpath("//*[@id=\"newObjectForm\"]/ul/li[33]/div/div[1]/label/span")).click();
+                    break;
+                case "Garažas":
+                    driver.findElement(By.xpath("//*[@id=\"newObjectForm\"]/ul/li[33]/div/div[2]/label/span")).click();
+                    break;
+                case "Pirtis":
+                    driver.findElement(By.xpath("//*[@id=\"newObjectForm\"]/ul/li[33]/div/div[3]/label/span")).click();
+                    break;
+                case "Rūbinė":
+                    driver.findElement(By.xpath("//*[@id=\"newObjectForm\"]/ul/li[33]/div/div[4]/label/span")).click();
+                    break;
+                case "Rūsys":
+                    driver.findElement(By.xpath("//*[@id=\"newObjectForm\"]/ul/li[33]/div/div[5]/label/span")).click();
+                    break;
+                case "Ūkiniai pastatai":
+                    driver.findElement(By.xpath("//*[@id=\"newObjectForm\"]/ul/li[33]/div/div[6]/label/span")).click();
+                    break;
+                case "Terasa":
+                    driver.findElement(By.xpath("//*[@id=\"newObjectForm\"]/ul/li[33]/div/div[7]/label/span")).click();
+                    break;
             }
         }
     }
 
+    public void setAdditionalInstallation() {
+
+        String[] additionalInstallation = this.additionalInstallation.replace(", ", ",").split(",");
+        for (int i = 0; i < additionalInstallation.length; i++) {
+
+            switch (additionalInstallation[i]) {
+
+                case "Kondicionierius":
+                    driver.findElement(By.xpath("//*[@id=\"newObjectForm\"]/ul/li[35]/div/div[1]/label/span")).click();
+                    break;
+                case "Skalbimo mašina":
+                    driver.findElement(By.xpath("//*[@id=\"newObjectForm\"]/ul/li[35]/div/div[2]/label/span")).click();
+                    break;
+                case "Su baldais":
+                    driver.findElement(By.xpath("//*[@id=\"newObjectForm\"]/ul/li[35]/div/div[3]/label/span")).click();
+                    break;
+                case "Šaldytuvas":
+                    driver.findElement(By.xpath("//*[@id=\"newObjectForm\"]/ul/li[35]/div/div[4]/label/span")).click();
+                    break;
+                case "Šildomos grindys":
+                    driver.findElement(By.xpath("//*[@id=\"newObjectForm\"]/ul/li[35]/div/div[5]/label/span")).click();
+                    break;
+                case "Virtuvės komplektas":
+                    driver.findElement(By.xpath("//*[@id=\"newObjectForm\"]/ul/li[35]/div/div[6]/label/span")).click();
+                    break;
+                case "Viryklė":
+                    driver.findElement(By.xpath("//*[@id=\"newObjectForm\"]/ul/li[35]/div/div[7]/label/span")).click();
+                    break;
+                case "Židinys":
+                    driver.findElement(By.xpath("//*[@id=\"newObjectForm\"]/ul/li[35]/div/div[8]/label/span")).click();
+                    break;
+                case "Plastikiniai vamzdžiai":
+                    driver.findElement(By.xpath("//*[@id=\"newObjectForm\"]/ul/li[35]/div/div[9]/label/span")).click();
+                    break;
+                case "Indaplovė":
+                    driver.findElement(By.xpath("//*[@id=\"newObjectForm\"]/ul/li[35]/div/div[10]/label/span")).click();
+                    break;
+                case "Rekuperacinė sistema":
+                    driver.findElement(By.xpath("//*[@id=\"newObjectForm\"]/ul/li[35]/div/div[11]/label/span")).click();
+                    break;
+            }
+        }
+    }
+
+    public void setSecurity() {
+
+        String[] security = this.security.replace(", ", ",").split(",");
+        for (int i = 0; i < security.length; i++) {
+
+            switch (security[i]) {
+
+                case "Aptverta teritorija":
+                    driver.findElement(By.xpath("//*[@id=\"newObjectForm\"]/ul/li[37]/div/div[1]/label/span")).click();
+                    break;
+                case "Budintis sargas":
+                    driver.findElement(By.xpath("//*[@id=\"newObjectForm\"]/ul/li[37]/div/div[2]/label/span")).click();
+                    break;
+                case "Signalizacija":
+                    driver.findElement(By.xpath("//*[@id=\"newObjectForm\"]/ul/li[37]/div/div[3]/label/span")).click();
+                    break;
+                case "Šarvuotos durys":
+                    driver.findElement(By.xpath("//*[@id=\"newObjectForm\"]/ul/li[37]/div/div[4]/label/span")).click();
+                    break;
+                case "Vaizdo kameros":
+                    driver.findElement(By.xpath("//*[@id=\"newObjectForm\"]/ul/li[37]/div/div[5]/label/span")).click();
+            }
+        }
+    }
+
+    public void setEnergyClass() {
+        driver.findElement(By.xpath("//*[@id=\"newObjectForm\"]/ul/li[39]/div/div[1]/div[2]")).click();
+    }
 
 }
 
